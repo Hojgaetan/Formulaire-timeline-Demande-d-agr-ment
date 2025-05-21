@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Demande</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/roboto-font.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<!-- datepicker -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootrap/js/bootstrap.min.js') }}">
+</head>
+<body>
+	<div class="page-content">
+		<div class="container-fluid">
+			<div class="wizard-form">
+				<div class="wizard-header">
+					<h3 class="heading">Demande D'agrément</h3>
+					<p>Informations indispensable à la demande d'agrément</p>
+				</div>
+		        <form class="form-register needs-validation" id="agrement-form" method="post">
+		        	<div id="form-total">
+		        		<!-- SECTION 1 -->
+			            <h2>
+			            	<span class="step-icon"><i class="fa-solid fa-building fa-xs" style="color: #ffffff;"></i></span>
+			            	<span class="step-text">Cabinet</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+                                	<div class="row g-3 d-flex flex-wrap align-items-end needs-validation" novalided>
+										<!-- item1 radio-form -->
+                                       <div class="col-sm-4 col-xs-12 mb-3">
+                                            <p>Renouvellement ?</p>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="question-renouvellement" id="oui" value="true" checked required>
+                                                <label class="form-check-label" for="oui">Oui</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="question-renouvellement" id="non" value="false" required>
+                                                <label class="form-check-label" for="non">Non</label>
+                                            </div>
+                                        </div>
+										<!-- item2 radio-form -->
+                                        <div class="col-sm-4 col-xs-12 mb-3">
+                                            <p>Avez-vous un manuel de procédures ?</p>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="question-manuel" id="manuel-oui" value="true" checked required>
+                                                <label class="form-check-label" for="manuel-oui">Oui</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="question-manuel" id="manuel-non" value="false" required>
+                                                <label class="form-check-label" for="manuel-non">Non</label>
+                                            </div>
+                                        </div>
+										<!-- item3 radio-form -->
+                                        <div class="col-sm-4 col-xs-12 mb-3">
+                                            <p>Avez-vous l'attestation de non interdiction d'exercer?</p>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="question-attestation" id="attestation-oui" value="true" checked required>
+                                                <label class="form-check-label" for="attestation-oui">Oui</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="question-attestation" id="attestation-non" value="false" required>
+                                                <label class="form-check-label" for="attestation-non">Non</label>
+                                            </div>
+                                        </div>
+									<!-- items1 line-forms -->
+                                        <div class="col-sm-6 col-xs-12 mb-3">
+    										<label for="annee-de-creation" class="form-label">Année de création</label>
+											<input type="text" class="form-control" id="annee-de-creation" name="annee-creation" aria-describedby="" placeholder="2024" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ!
+											</div>
+                                        </div>
+										<div class="col-sm-6 col-xs-12 mb-3">
+											<label for="domaine" class="form-label">Domaines</label>
+    										<select class="form-select slot" id="domaine" name="domaine" required>
+												<option value="">Choisissez...</option>
+												<option value="Conseil">Conseil</option>
+												<option value="Formation">Formation</option>
+												<option value="Audit">Audit</option>
+											</select>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+                                        </div>
+									<!-- items2 line-groups-forms -->
+										<div class="col-12 mb-3">
+											<p class="h6 text-success">Résultats des deux dernières années</p>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<p class="h6">N1</p>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<label for="ca-n1" class="form-label">Chiffre d'affaires</label>
+											<input type="text" class="form-control" id="ca-n1" name="ca-n1" aria-describedby="" placeholder="Chiffre d'affaire" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<label for="sous-traite-n1" class="form-label">Dont sous traité</label>
+											<input type="text" class="form-control" id="sous-traite-n1" name="sous-traite-n1" aria-describedby="" placeholder="25%" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<label for="masse-salariale-n1" class="form-label">Masse salariale</label>
+											<input type="text" class="form-control" id="masse-salariale-n1" name="masse-salariale-n1" aria-describedby="" placeholder="25.000.000" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<p class="h6">N2</p>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<label for="ca-n2" class="form-label">Chiffre d'affaires</label>
+											<input type="text" class="form-control" id="ca-n2" name="ca-n2" aria-describedby="" placeholder="Chiffre d'affaire" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<label for="sous-traite-n2" class="form-label">Dont sous traité</label>
+											<input type="text" class="form-control" id="sous-traite-n2" name="sous-traite-n2" aria-describedby="" placeholder="25%" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-3 col-xs-12 mb-3">
+											<label for="masse-salariale-n2" class="form-label">Masse salariale</label>
+											<input type="text" class="form-control" id="masse-salariale-n2" name="masse-salariale-n2" aria-describedby="" placeholder="25.000.000" required>
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+									<!-- items3 line-groups-forms -->
+										<div class="col-12 mb-3">
+											<p class="h6 text-success">Liste des dirigeants sociaux</p>
+										</div>
+										<div class="col-sm-5 col-xs-12 mb-3">
+											<label for="dirigeant-prenom" class="form-label">Prénom</label>
+											<input type="text" class="form-control" id="dirigeant-prenom" aria-describedby="" placeholder="John">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-5 col-xs-12 mb-3">
+											<label for="dirigeant-nom" class="form-label">Nom</label>
+											<input type="text" class="form-control" id="dirigeant-nom" aria-describedby="" placeholder="Ma">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-2 col-xs-12 mb-3">
+											<label for=""> </label>
+											<button type="button" id="add-dirigeant" class="btn btn-success text-nowrap">Ajouter</button>
+										</div>
+										<div class="col-12 mb-3">
+											<table class="table table-striped" id="dirigeants-table">
+												<thead>
+													<tr>
+														<th>Prénom</th>
+														<th>Nom</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- Dirigeants will be added here dynamically -->
+												</tbody>
+											</table>
+										</div>
+									<!-- items4 line-groups-forms -->
+										<div class="col-12 mb-3">
+											<p class="h6 text-success">Logistiques (Equipment techniques & Informatics etc.)</p>
+										</div>
+										<div class="col-sm-10 col-xs-12 mb-3">
+											<label for="logistique-libelle" class="form-label">Libellé</label>
+											<input type="text" class="form-control" id="logistique-libelle" aria-describedby="" placeholder="Libellé">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-2 col-xs-12 mb-3">
+											<label for=""> </label>
+											<button type="button" id="add-logistique" class="btn btn-success text-nowrap">Ajouter</button>
+										</div>
+										<div class="col-12 mb-3">
+											<table class="table table-striped" id="logistiques-table">
+												<thead>
+													<tr>
+														<th>Libellé</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- Logistiques will be added here dynamically -->
+												</tbody>
+											</table>
+										</div>
+									<!-- items5 line-groups-forms -->
+										<div class="col-12 mb-3">
+										<p class="h6 text-success">Personnel Professionnel Permanent</p>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="personnel-nom" class="form-label">Nom</label>
+										<input type="text" class="form-control" id="personnel-nom" aria-describedby="" placeholder="Nom">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+										</div>
+									
+										<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="personnel-prenom" class="form-label">Prénom</label>
+										<input type="text" class="form-control" id="personnel-prenom" aria-describedby="" placeholder="Prénom">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="personnel-grade" class="form-label">Grade</label>
+										<input type="text" class="form-control" id="personnel-grade" aria-describedby="" placeholder="Grade">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="personnel-fonction" class="form-label">Fonction</label>
+										<input type="text" class="form-control" id="personnel-fonction" aria-describedby="" placeholder="Fonction">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="personnel-domaine" class="form-label">Domaine de compétence</label>
+										<input type="text" class="form-control" id="personnel-domaine" aria-describedby="" placeholder="Domaine de compétence">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="personnel-experience" class="form-label">Années d'expériences</label>
+										<input type="text" class="form-control" id="personnel-experience" aria-describedby="" placeholder="Années d'éxpériences">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+										</div>
+										<div class="col-12 mb-3">
+											<button type="button" id="add-personnel" class="btn btn-success text-nowrap">Ajouter</button>
+										</div>
+										<div class="col-12 mb-3">
+											<table class="table table-striped" id="personnel-table">
+												<thead>
+													<tr>
+														<th>Nom</th>
+														<th>Prénom</th>
+														<th>Grade</th>
+														<th>Fonction</th>
+														<th>Domaine</th>
+														<th>Expérience</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- Personnel will be added here dynamically -->
+												</tbody>
+											</table>
+										</div>
+									<!-- items6 line-groups-forms -->
+										<div class="col-12 mt-3">
+											<p class="h6 text-success">Supervision et Coordination</p>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+											<label for="supervision-nom" class="form-label">Nom</label>
+											<input type="text" class="form-control" id="supervision-nom" aria-describedby="" placeholder="Nom">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+											<label for="supervision-prenom" class="form-label">Prénom</label>
+											<input type="text" class="form-control" id="supervision-prenom" aria-describedby="" placeholder="Prénom">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+											<label for="supervision-grade" class="form-label">Grade</label>
+											<input type="text" class="form-control" id="supervision-grade" aria-describedby="" placeholder="Grade">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+											<label for="supervision-fonction" class="form-label">Fonction</label>
+											<input type="text" class="form-control" id="supervision-fonction" aria-describedby="" placeholder="Fonction">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+											<label for="supervision-domaine" class="form-label">Domaine de compétence</label>
+											<input type="text" class="form-control" id="supervision-domaine" aria-describedby="" placeholder="Domaine de compétence">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-sm-4 col-xs-12 mb-3">
+											<label for="supervision-experience" class="form-label">Années d'expériences</label>
+											<input type="text" class="form-control" id="supervision-experience" aria-describedby="" placeholder="Années d'éxpériences">
+											<div class="valid-feedback">
+												Veillez remplir ce champ
+											</div>
+										</div>
+										<div class="col-12 mb-3">
+											<button type="button" id="add-supervision" class="btn btn-success text-nowrap">Ajouter</button>
+										</div>
+										<div class="col-12 mb-3">
+											<table class="table table-striped" id="supervision-table">
+												<thead>
+													<tr>
+														<th>Nom</th>
+														<th>Prénom</th>
+														<th>Grade</th>
+														<th>Fonction</th>
+														<th>Domaine</th>
+														<th>Expérience</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- Supervision will be added here dynamically -->
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+						</section>
+			            
+						<!-- SECTION 2 -->
+			            <h2>
+			            	<span class="step-icon"><i class="fa-solid fa-user-gear fa-sm fa-xs" style="color: #ffffff;"></i></span>
+			            	<span class="step-text">Expertises</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+								<div class="row g-3 d-flex flex-wrap align-items-end needs-validation justify-content-between" novalided>
+								<!-- cases à cocher première catégorie -->
+									<div class="col-12 mt-3">
+										<p class="h6 text-success">Conseil en gestion</p>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AA" name="expertise-AA" value="AA" checked>
+											<label for="expertise-AA" class="form-check-label">AA politique Générale et Développement Organisationnel</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AB" name="expertise-AB" value="AB">
+											<label for="expertise-AB" class="form-check-label">AB système d'inforamtion et informatique</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AC" name="expertise-AC" value="AC">
+											<label for="expertise-AC" class="form-check-label">AC gestion de la qualité</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AD" name="expertise-AD" value="AD">
+											<label for="expertise-AD" class="form-check-label">AD information et veille</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AE" name="expertise-AE" value="AE">
+											<label for="expertise-AE" class="form-check-label">AE Maintenace</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AF" name="expertise-AF" value="AF">
+											<label for="expertise-AF" class="form-check-label">AF Gestion Financière, Gesttion comptable et Administrative</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AG" name="expertise-AG" value="AG">
+											<label for="expertise-AG" class="form-check-label">AG Gestion des opérations et de la production, Ingénierie de la production</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AH" name="expertise-AH" value="AH">
+											<label for="expertise-AH" class="form-check-label">AH Marketing distribution et communication</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-AI" name="expertise-AI" value="AI">
+											<label for="expertise-AI" class="form-check-label">AI Ressources humaines</label>
+										</div>
+									</div>
+								<!-- cases à cocher deuxième catégorie -->
+									<div class="col-12 mt-3">
+										<p class="h6 text-success">Assistance juridique et fiscale</p>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-B" name="expertise-B" value="B" checked>
+											<label for="expertise-B" class="form-check-label">B Assistance juridique et fiscale</label>
+										</div>
+									</div>
+								<!-- cases à cocher troisième partie -->
+									<div class="col-12 mt-3">
+										<p class="h6 text-success">Formation professionnelle</p>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-CA" name="expertise-CA" value="CA">
+											<label for="expertise-CA" class="form-check-label">CA Formation en gestion</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-CB" name="expertise-CB" value="CB">
+											<label for="expertise-CB" class="form-check-label">CB Formation en informatique</label>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-CC" name="expertise-CC" value="CC">
+											<label for="expertise-CC" class="form-check-label">CC Formation technique et industrielle</label>
+										</div>
+									</div>
+								<!-- Cases à cocher quatrième partie -->
+									<div class="col-12 mt-3">
+									<p class="h6 text-success">Etudes Economiques</p>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-D" name="expertise-D" value="D" checked>
+										<label for="expertise-D" class="form-check-label">D Etudes Economiques</label>
+									</div>
+									</div>
+								<!-- Cases à cocher cinquième partie -->
+									<div class="col-12 mt-3">
+									<p class="h6 text-success">Montage de dossier et intermédiaire</p>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-EA" name="expertise-EA" value="EA">
+										<label for="expertise-EA" class="form-check-label">EA PLans d'affaires et recherche de partenaires financiers</label>
+									</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-EB" name="expertise-EB" value="EB">
+										<label for="expertise-EB" class="form-check-label">EB Intermédiaire Financière</label>
+									</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input expertise-checkbox" id="expertise-EC" name="expertise-EC" value="EC">
+										<label for="expertise-EC" class="form-check-label">EC Suivi post financement</label>
+									</div>
+									</div>
+								</div>
+							</div>
+			            </section>
+			            <!-- SECTION 3 -->
+			            <h2>
+			            	<span class="step-icon"><i class="fa-solid fa-briefcase fa-xs fa-sm" style="color: #ffffff;"></i></span>
+			            	<span class="step-text">Réferences</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+								<div class="row g-3 d-flex flex-wrap align-items-end needs-validation" novalided>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-domaine" class="form-label">Domaines</label>
+										<select class="form-select slot" id="reference-domaine" required>
+											<option value="">Choisissez...</option>
+											<option value="Conseil">Conseil</option>
+											<option value="Formation">Formation</option>
+											<option value="Audit">Audit</option>
+										</select>
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-entreprise" class="form-label">Entreprise/Bailleur</label>
+										<input type="text" class="form-control" id="reference-entreprise" aria-describedby="" placeholder="Entreprise/Bailleur">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-annee" class="form-label">Année</label>
+										<input type="text" class="form-control" id="reference-annee" aria-describedby="" placeholder="Année">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-pays" class="form-label">Pays</label>
+										<select class="form-select slot" id="reference-pays">
+											<option value="">Choisissez...</option>
+											<option value="Sénégal">Sénégal</option>
+											<option value="Mali">Mali</option>
+											<option value="Côte d'Ivoire">Côte d'Ivoire</option>
+										</select>
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-description" class="form-label">Description</label>
+										<input type="text" class="form-control" id="reference-description" aria-describedby="" placeholder="Description">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-prenom" class="form-label">Prénom source</label>
+										<input type="text" class="form-control" id="reference-prenom" aria-describedby="" placeholder="Prénom source">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-nom" class="form-label">Nom source</label>
+										<input type="text" class="form-control" id="reference-nom" aria-describedby="" placeholder="Nom source">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-12 mb-3">
+										<label for="reference-telephone" class="form-label">Téléphone source</label>
+										<input type="text" class="form-control" id="reference-telephone" aria-describedby="" placeholder="Téléphone source">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-2 col-xs-12 mb-3">
+										<label for=""> </label>
+										<button type="button" id="add-reference" class="btn btn-success text-nowrap">Ajouter</button>
+									</div>
+									<div class="col-12 mb-3">
+										<table class="table table-striped" id="references-table">
+											<thead>
+												<tr>
+													<th>Domaine</th>
+													<th>Entreprise</th>
+													<th>Année</th>
+													<th>Pays</th>
+													<th>Description</th>
+													<th>Contact</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- References will be added here dynamically -->
+											</tbody>
+										</table>
+									</div>
+									<div class="col-12 mt-3">
+										<p class="h6 text-success">Autres missions réalisées (sans les préciser)</p>
+									</div>
+									<div class="col-sm-10 col-xs-12 mb-3">
+										<label for="autre-mission-libelle" class="form-label">Libellé</label>
+										<input type="text" class="form-control" id="autre-mission-libelle" aria-describedby="" placeholder="Libellé">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-2 col-xs-12 mb-3">
+										<label for=""> </label>
+										<button type="button" id="add-autre-mission" class="btn btn-success text-nowrap">Ajouter</button>
+									</div>
+									<div class="col-12 mb-3">
+										<table class="table table-striped" id="autres-missions-table">
+											<thead>
+												<tr>
+													<th>Libellé</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- Autres missions will be added here dynamically -->
+											</tbody>
+										</table>
+									</div>
+									<div class="col-12 mt-3">
+										<p class="h6 text-success">Autres expériences</p>
+									</div>
+									<div class="col-sm-10 col-xs-12 mb-3">
+										<label for="autre-experience-libelle" class="form-label">Libellé</label>
+										<input type="text" class="form-control" id="autre-experience-libelle" aria-describedby="" placeholder="Libellé">
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-2 col-xs-12 mb-3">
+										<label for=""> </label>
+										<button type="button" id="add-autre-experience" class="btn btn-success text-nowrap">Ajouter</button>
+									</div>
+									<div class="col-12 mb-3">
+										<table class="table table-striped" id="autres-experiences-table">
+											<thead>
+												<tr>
+													<th>Libellé</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- Autres experiences will be added here dynamically -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+			            </section>
+			            <!-- SECTION 4 -->
+			            <h2>
+			            	<span class="step-icon"><i class="fa-solid fa-dollar-sign fa-xs fa-sm" style="color: #ffffff;"></i></span>
+			            	<span class="step-text">Honoraires</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+								<div class="row g-3 d-flex flex-wrap align-items-end needs-validation" novalided>
+									<div class="col-sm-6 col-xs-12 mb-3">
+										<label for="type-consultant" class="form-label">Type de consultant</label>
+										<select class="form-select slot" id="type-consultant" required>
+											<option value="">Choisissez...</option>
+											<option value="Consultant sénior">Consultant sénior</option>
+											<option value="Consultant Junior">Consultant Junior</option>
+										</select>
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12 mb-3">
+										<label for="taux-journalier" class="form-label">Taux journalier</label>
+										<select class="form-select slot" id="taux-journalier" required>
+											<option value="">Choisissez...</option>
+											<option value="100.000 - 200.000">100.000 - 200.000</option>
+											<option value="200.000 - 300.000">200.000 - 300.000</option>
+											<option value="300.000 - 400.000">300.000 - 400.000</option>
+											<option value="400.000 - 500.000">400.000 - 500.000</option>
+										</select>
+										<div class="valid-feedback">
+											Veillez remplir ce champ
+										</div>
+									</div>
+									<div class="col-12 mb-3">
+										<small class="text-body-secondary h6">Signature</small>
+									</div>
+									<div class="col-12">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="signature-certification" name="signature-certification" required>
+											<label for="signature-certification" class="form-check-label">Je certifies que les déclarations que j'ai faite en réponse aux questions ci dessus sont vraies, complètes et exactes et j'autorises le FFP à les vérifier en cas de besoin</label>
+										</div>
+									</div>
+									<div class="col-12 mt-4">
+										<button type="button" id="submit-form" class="btn btn-primary">Soumettre la demande</button>
+									</div>
+								</div>
+							</div>
+			            </section>
+		        	</div>
+		        </form>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.steps.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	<script>
+		// Global variables to store form data
+		let dirigeants = [];
+		let logistiques = [];
+		let personnel = [];
+		let supervision = [];
+		let references = [];
+		let autresMissions = [];
+		let autresExperiences = [];
+		
+		// Add dirigeant
+		document.getElementById('add-dirigeant').addEventListener('click', function() {
+			const prenom = document.getElementById('dirigeant-prenom').value;
+			const nom = document.getElementById('dirigeant-nom').value;
+			
+			if (prenom && nom) {
+				dirigeants.push({ prenom, nom });
+				
+				// Add to table
+				const tbody = document.querySelector('#dirigeants-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `<td>${prenom}</td><td>${nom}</td>`;
+				tbody.appendChild(tr);
+				
+				// Clear inputs
+				document.getElementById('dirigeant-prenom').value = '';
+				document.getElementById('dirigeant-nom').value = '';
+			} else {
+				alert('Veuillez remplir tous les champs pour le dirigeant');
+			}
+		});
+		
+		// Add logistique
+		document.getElementById('add-logistique').addEventListener('click', function() {
+			const libelle = document.getElementById('logistique-libelle').value;
+			
+			if (libelle) {
+				logistiques.push({ libelle });
+				
+				// Add to table
+				const tbody = document.querySelector('#logistiques-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `<td>${libelle}</td>`;
+				tbody.appendChild(tr);
+				
+				// Clear input
+				document.getElementById('logistique-libelle').value = '';
+			} else {
+				alert('Veuillez remplir le champ libellé pour la logistique');
+			}
+		});
+		
+		// Add personnel
+		document.getElementById('add-personnel').addEventListener('click', function() {
+			const nom = document.getElementById('personnel-nom').value;
+			const prenom = document.getElementById('personnel-prenom').value;
+			const grade = document.getElementById('personnel-grade').value;
+			const fonction = document.getElementById('personnel-fonction').value;
+			const domaine_competence = document.getElementById('personnel-domaine').value;
+			const annees_experience = document.getElementById('personnel-experience').value;
+			
+			if (nom && prenom && grade && fonction && domaine_competence && annees_experience) {
+				personnel.push({ 
+					nom, 
+					prenom, 
+					grade, 
+					fonction, 
+					domaine_competence, 
+					annees_experience 
+				});
+				
+				// Add to table
+				const tbody = document.querySelector('#personnel-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `
+					<td>${nom}</td>
+					<td>${prenom}</td>
+					<td>${grade}</td>
+					<td>${fonction}</td>
+					<td>${domaine_competence}</td>
+					<td>${annees_experience}</td>
+				`;
+				tbody.appendChild(tr);
+				
+				// Clear inputs
+				document.getElementById('personnel-nom').value = '';
+				document.getElementById('personnel-prenom').value = '';
+				document.getElementById('personnel-grade').value = '';
+				document.getElementById('personnel-fonction').value = '';
+				document.getElementById('personnel-domaine').value = '';
+				document.getElementById('personnel-experience').value = '';
+			} else {
+				alert('Veuillez remplir tous les champs pour le personnel');
+			}
+		});
+		
+		// Add supervision
+		document.getElementById('add-supervision').addEventListener('click', function() {
+			const nom = document.getElementById('supervision-nom').value;
+			const prenom = document.getElementById('supervision-prenom').value;
+			const grade = document.getElementById('supervision-grade').value;
+			const fonction = document.getElementById('supervision-fonction').value;
+			const domaine_competence = document.getElementById('supervision-domaine').value;
+			const annees_experience = document.getElementById('supervision-experience').value;
+			
+			if (nom && prenom && grade && fonction && domaine_competence && annees_experience) {
+				supervision.push({ 
+					nom, 
+					prenom, 
+					grade, 
+					fonction, 
+					domaine_competence, 
+					annees_experience 
+				});
+				
+				// Add to table
+				const tbody = document.querySelector('#supervision-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `
+					<td>${nom}</td>
+					<td>${prenom}</td>
+					<td>${grade}</td>
+					<td>${fonction}</td>
+					<td>${domaine_competence}</td>
+					<td>${annees_experience}</td>
+				`;
+				tbody.appendChild(tr);
+				
+				// Clear inputs
+				document.getElementById('supervision-nom').value = '';
+				document.getElementById('supervision-prenom').value = '';
+				document.getElementById('supervision-grade').value = '';
+				document.getElementById('supervision-fonction').value = '';
+				document.getElementById('supervision-domaine').value = '';
+				document.getElementById('supervision-experience').value = '';
+			} else {
+				alert('Veuillez remplir tous les champs pour la supervision');
+			}
+		});
+		
+		// Add reference
+		document.getElementById('add-reference').addEventListener('click', function() {
+			const domaine = document.getElementById('reference-domaine').value;
+			const entreprise_bailleur = document.getElementById('reference-entreprise').value;
+			const annee = document.getElementById('reference-annee').value;
+			const pays = document.getElementById('reference-pays').value;
+			const description = document.getElementById('reference-description').value;
+			const prenom_source = document.getElementById('reference-prenom').value;
+			const nom_source = document.getElementById('reference-nom').value;
+			const telephone_source = document.getElementById('reference-telephone').value;
+			
+			if (domaine && entreprise_bailleur && annee && pays && description && prenom_source && nom_source && telephone_source) {
+				references.push({ 
+					domaine, 
+					entreprise_bailleur, 
+					annee, 
+					pays, 
+					description, 
+					prenom_source, 
+					nom_source, 
+					telephone_source 
+				});
+				
+				// Add to table
+				const tbody = document.querySelector('#references-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `
+					<td>${domaine}</td>
+					<td>${entreprise_bailleur}</td>
+					<td>${annee}</td>
+					<td>${pays}</td>
+					<td>${description}</td>
+					<td>${prenom_source} ${nom_source} (${telephone_source})</td>
+				`;
+				tbody.appendChild(tr);
+				
+				// Clear inputs
+				document.getElementById('reference-domaine').value = '';
+				document.getElementById('reference-entreprise').value = '';
+				document.getElementById('reference-annee').value = '';
+				document.getElementById('reference-pays').value = '';
+				document.getElementById('reference-description').value = '';
+				document.getElementById('reference-prenom').value = '';
+				document.getElementById('reference-nom').value = '';
+				document.getElementById('reference-telephone').value = '';
+			} else {
+				alert('Veuillez remplir tous les champs pour la référence');
+			}
+		});
+		
+		// Add autre mission
+		document.getElementById('add-autre-mission').addEventListener('click', function() {
+			const libelle = document.getElementById('autre-mission-libelle').value;
+			
+			if (libelle) {
+				autresMissions.push({ libelle });
+				
+				// Add to table
+				const tbody = document.querySelector('#autres-missions-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `<td>${libelle}</td>`;
+				tbody.appendChild(tr);
+				
+				// Clear input
+				document.getElementById('autre-mission-libelle').value = '';
+			} else {
+				alert('Veuillez remplir le champ libellé pour l\'autre mission');
+			}
+		});
+		
+		// Add autre experience
+		document.getElementById('add-autre-experience').addEventListener('click', function() {
+			const libelle = document.getElementById('autre-experience-libelle').value;
+			
+			if (libelle) {
+				autresExperiences.push({ libelle });
+				
+				// Add to table
+				const tbody = document.querySelector('#autres-experiences-table tbody');
+				const tr = document.createElement('tr');
+				tr.innerHTML = `<td>${libelle}</td>`;
+				tbody.appendChild(tr);
+				
+				// Clear input
+				document.getElementById('autre-experience-libelle').value = '';
+			} else {
+				alert('Veuillez remplir le champ libellé pour l\'autre expérience');
+			}
+		});
+		
+		// Submit form
+		document.getElementById('submit-form').addEventListener('click', function() {
+			// Get form data
+			const renouvellement = document.querySelector('input[name="question-renouvellement"]:checked').value === 'true';
+			const manuel_procedures = document.querySelector('input[name="question-manuel"]:checked').value === 'true';
+			const attestation_non_interdiction = document.querySelector('input[name="question-attestation"]:checked').value === 'true';
+			const annee_creation = document.getElementById('annee-de-creation').value;
+			const domaine = document.getElementById('domaine').value;
+			const ca_n1 = document.getElementById('ca-n1').value;
+			const sous_traite_n1 = document.getElementById('sous-traite-n1').value;
+			const masse_salariale_n1 = document.getElementById('masse-salariale-n1').value;
+			const ca_n2 = document.getElementById('ca-n2').value;
+			const sous_traite_n2 = document.getElementById('sous-traite-n2').value;
+			const masse_salariale_n2 = document.getElementById('masse-salariale-n2').value;
+			
+			// Get expertises
+			const expertises = {};
+			document.querySelectorAll('.expertise-checkbox').forEach(checkbox => {
+				expertises[checkbox.value] = checkbox.checked;
+			});
+			
+			// Get honoraires
+			const type_consultant = document.getElementById('type-consultant').value;
+			const taux_journalier = document.getElementById('taux-journalier').value;
+			const signature_certification = document.getElementById('signature-certification').checked;
+			
+			// Validate required fields
+			if (!annee_creation || !domaine || !ca_n1 || !sous_traite_n1 || !masse_salariale_n1 || 
+				!ca_n2 || !sous_traite_n2 || !masse_salariale_n2 || !type_consultant || 
+				!taux_journalier || !signature_certification) {
+				alert('Veuillez remplir tous les champs obligatoires');
+				return;
+			}
+			
+			// Prepare data for submission
+			const formData = {
+				renouvellement,
+				manuel_procedures,
+				attestation_non_interdiction,
+				annee_creation,
+				domaine,
+				ca_n1,
+				sous_traite_n1,
+				masse_salariale_n1,
+				ca_n2,
+				sous_traite_n2,
+				masse_salariale_n2,
+				dirigeants,
+				logistiques,
+				personnel,
+				supervision,
+				expertises,
+				references,
+				autres_missions: autresMissions,
+				autres_experiences: autresExperiences,
+				honoraires: {
+					type_consultant,
+					taux_journalier,
+					signature_certification
+				}
+			};
+			
+			// Submit data to API
+			fetch('/api/submit', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					alert('Demande soumise avec succès! ID: ' + data.cabinet_id);
+					// Optionally redirect to a success page
+					// window.location.href = '/success?id=' + data.cabinet_id;
+				} else {
+					alert('Erreur lors de la soumission: ' + data.message);
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('Une erreur est survenue lors de la soumission');
+			});
+		});
+	</script>
+</body>
+</html>

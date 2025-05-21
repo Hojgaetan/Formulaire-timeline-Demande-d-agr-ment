@@ -7,12 +7,16 @@ Ceci est mini projet concret de conception et de Développement d'un formulaire 
 - [Vue d'ensembel](#vue-d-ensemble)
   - [Travail à faire](#TAF)
   - [Screenshot](#screenshot)
-  
+
 - [Comment j'ai procédé](#Procedure)
   - [Conçu et développer avec](#Ouils)
   - [Mes difficultés](#difficulty)
   - [Pret pour un nouveau défi](#continuite)
   - [Ressources utilisées](#Ressources)
+- [Backend](#Backend)
+  - [Technologies utilisées](#Technologies)
+  - [Installation et exécution](#Installation)
+  - [API Endpoints](#API)
 - [Auteur](#Auteur)
 - [Je tiens à remercier](#Remerciements)
 
@@ -72,6 +76,65 @@ Durant cette conception j'ai pas mal aimé le faite de chercher et trouver enfin
 - [Javacript/Jquery]
 
 
+## Backend
+
+Le backend a été implémenté avec Python et SQLite3 pour stocker les données du formulaire.
+
+### Technologies
+
+- Python 3.x
+- Flask (framework web)
+- SQLite3 (base de données)
+
+### Installation
+
+1. Cloner le dépôt :
+```bash
+git clone <url-du-repo>
+cd Formulaire-timeline-Demande-d-agr-ment
+```
+
+2. Créer un environnement virtuel et l'activer :
+```bash
+python -m venv venv
+source venv/bin/activate  # Sur Windows: venv\Scripts\activate
+```
+
+3. Installer les dépendances :
+```bash
+pip install -r backend/requirements.txt
+```
+
+4. Exécuter le script de configuration pour initialiser la base de données et copier les fichiers statiques :
+```bash
+cd backend
+python setup.py
+```
+
+5. Lancer l'application :
+```bash
+python app.py
+```
+
+L'application sera accessible à l'adresse http://localhost:5000
+
+6. Tester l'API (optionnel) :
+```bash
+# Assurez-vous que l'application est en cours d'exécution dans un autre terminal
+python test_api.py
+```
+
+### API
+
+Le backend fournit plusieurs endpoints API pour gérer les données du formulaire :
+
+- `/api/submit` : Soumettre le formulaire complet
+- `/api/cabinet/<id>` : Récupérer les données d'un cabinet
+- Endpoints spécifiques pour chaque section du formulaire
+
+Pour plus de détails, consultez le [README du backend](backend/README.md).
+
+
 ## Auteur
 
 - LinkedIn - [@joel-gaetan-hassam-obah](https://www.linkedin.com/in/joel-gaetan-hassam-obah/)
@@ -80,4 +143,3 @@ Durant cette conception j'ai pas mal aimé le faite de chercher et trouver enfin
 
 ## Remerciements
 Je tenais à remercier mon frère Joel Freddy Mengara Zeh [https://www.linkedin.com/in/joel-freddy-mengara/] pour m'avoir donné la grace de me mettre à rude épreuve avec ce projet concret où je l'ai assisté et Youssouf Traoré [https://www.linkedin.com/in/youssouf-traore/], mon camarade à ISM et Etudiant comme moi de m'avoir encouragé et donner de la motivation afin que je ne lache pas les bras. Ainsi que l'auteur du template boostrap Rock Krivec [https://colorlib.com/wp/author/rokrivec/] de colorlibs.
-
