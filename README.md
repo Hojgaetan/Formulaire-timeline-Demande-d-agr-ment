@@ -1,4 +1,9 @@
 # Mini Projet de formulaire de demande d'Agréments
+![forks](https://img.shields.io/github/forks/Hojgaetan/Formulaire-timeline-Demande-d-agr-ment)
+[![commits](https://img.shields.io/github/commit-activity/w/Hojgaetan/Formulaire-timeline-Demande-d-agr-ment)](https://github.com/Hojgaetan/LMS/commits/main)
+![contributors](https://img.shields.io/github/contributors/Hojgaetan/Formulaire-timeline-Demande-d-agr-ment)
+![MIT License Badge](https://img.shields.io/badge/license-MIT-green)
+
 
 Ceci est mini projet concret de conception et de Développement d'un formulaire timeline permettant à enrégistrer les informations d'un client qui voudrait avoir une demande d'agrément dand une entreprise de la place.
 
